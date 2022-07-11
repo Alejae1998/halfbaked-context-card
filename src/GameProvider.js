@@ -6,23 +6,32 @@ const GameContext = createContext();
 
 export default function GameProvider({ children }) {
   const [deck, setDeck] = useState(InitialCards);
-  const [playerOneHand, setPlayerOneHand] = useState([]);
-  const [playerTwoHand, setPlayerTwoHand] = useState([]);
-  const [playerThreeHand, setPlayerThreeHand] = useState([]); 
+  const [playerOneHand, setPLayerOneHand] = useState([]);
+  const [playerTwoHand, setPLayerTwoHand] = useState([]);
+  const [playerThreeHand, setPLayerThreeHand] = useState([]);
   const [selectedCard, setSelectedCard] = useState();
   const [from, setFrom] = useState('deck');
   const [to, setTo] = useState(1);
 
   const gameState = {
-    deck, setDeck, playerOneHand, setPlayerOneHand, playerTwoHand, setPlayerTwoHand, playerThreeHand, setPlayerThreeHand, selectedCard, setSelectedCard, from, setFrom, to, setTo
+    deck,
+    setDeck,
+    playerOneHand,
+    setPLayerOneHand,
+    playerTwoHand,
+    setPLayerTwoHand,
+    playerThreeHand,
+    setPLayerThreeHand,
+    selectedCard,
+    setSelectedCard,
+    from,
+    setFrom,
+    to,
+    setTo,
   };
 
-  return <GameContext.Provider value={gameState}>
-    { children }
-  </GameContext.Provider>;
-
+  return <GameContext.Provider value={gameState}>{children}</GameContext.Provider>;
 }
-
 export function useGameContext() {
   return useContext(GameContext);
 }
