@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import { useGameContext } from './GameProvider';
-import { findCardIndex } from './CardUtils';
+import { findCardIndex } from './Utils';
 
 export default function ExecutePassButton() {
   const {
@@ -41,7 +41,8 @@ export default function ExecutePassButton() {
   }
   return (
     <div className="execute-button" onClick={() => passCard(selectedCard)}>
-      Pass <Card card={selectedCard} cardLocation='button' /> from {from} to {to}
+      Pass <Card card={selectedCard} cardLocation="button" /> from {from ? from : 'Main'} to{' '}
+      {to}
     </div>
   );
 }
